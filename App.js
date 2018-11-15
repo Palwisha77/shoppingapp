@@ -9,30 +9,31 @@ import {createDrawerNavigator, DrawerItems} from 'react-navigation';
 import MyListScreen from './source/screens/MyListScreen';
 import ListScreen from './source/screens/ListScreen';
 import NewListScreen from './source/screens/NewListScreen';
-
+import ItemList from './source/screens/ItemList';
 
 const {width} = Dimensions.get('window')
+
 export default class App extends React.Component {
   render() {
     return (
     <DrawerNavigator/>
-    );
-  }
+)}
 }
+
 const CustomDrawerComponent = (props) => (
   <SafeAreaView styles={ {flex: 1 }}>
   <View style={{height:150,backgroundColor: 'White'}}></View>
   <ScrollView>
     <DrawerItems {...props }/>
-    
   </ScrollView>
-  
   </SafeAreaView>
 )
+
 const DrawerNavigator = createDrawerNavigator({
   Home: ListScreen,
   Newlist: NewListScreen,
   Mylist: MyListScreen,
+  ItemList: ItemList,
 },{
   contentComponent: CustomDrawerComponent,
   drawerwidth: width,
@@ -40,12 +41,14 @@ const DrawerNavigator = createDrawerNavigator({
     activeTintColor: 'orange'
   }
 })
+
 const styles = StyleSheet.create({
-  container: {
+container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  }
- 
+}
 });
+
+
